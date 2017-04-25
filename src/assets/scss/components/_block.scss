@@ -1,0 +1,5 @@
+// Styling for blocks.
+
+.content__sidebar .block__wrapper {
+  @include callout(#81CEFF);
+}

@@ -1,0 +1,11 @@
+global:
+  version: VERSION
+  css:
+    base:
+      dist/assets/css/app.css: {}
+  js:
+    dist/assets/js/app.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/jquery.once

@@ -1,0 +1,19 @@
+name: Helios
+type: theme
+description: 'Drupal 8 Foundation theme'
+version: VERSION
+core: 8.x
+base theme: stable
+
+libraries:
+    - helios/global
+
+regions:
+  menus: Menus
+  search: Search
+  header: Header
+  breadcrumb: Breadcrumb
+  help: Help
+  content: Content
+  sidebar: Sidebar
+  footer: Footer
