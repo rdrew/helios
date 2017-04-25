@@ -12,13 +12,35 @@
 
     <div class="l-main">
       <div class="row">
-        <header class="small-12 columns small-order-2 medium-order-1 header__wrapper" role="banner">
+        <header class="small-12 columns small-order-2 medium-order-1 header__wrapper menu-bar__wrapper" role="banner">
+          <nav class="top-bar topbar-responsive">
+          <div class="top-bar-title">
           
+          	<span data-responsive-toggle="topbar-responsive" data-hide-for="medium">
+          		<button class="menu-icon" type="button" data-toggle></button>
+          	</span>
+          	<a class="topbar-responsive-logo" href="#">
           
+          		<img src="assets/img/logo.svg" alt="Home">
           
-          <a href="/" title="Home" rel="home">
-            <img src="assets/img/logo.svg" alt="Home">
-          </a>
+          		<strong>testing</strong></a>
+          </div>
+          <div id="topbar-responsive" class="topbar-responsive-links">
+          	<div class="top-bar-right">
+          		<ul class="menu simple vertical medium-horizontal">
+          			<li><a href="#">Home</a></li>
+          			<li><a href="#">About</a></li>
+          			<li><a href="#">Services</a></li>
+          			<li><a href="#">Works</a></li>
+          			<li><a href="#">News</a></li>
+          			<li><a href="#">Contact</a></li>
+          			<li>
+          				<button type="button" class="button hollow topbar-responsive-button">Categories</button>
+          			</li>
+          		</ul>
+          	</div>
+          </div>
+          </nav>
           
         </header>
         <div class="small-12 columns small-order-1 medium-order-2 menu-bar__wrapper">
@@ -82,7 +104,8 @@
     </div>
     
 
-    <script src="assets/jquery/jquery.js"></script>
+    <!--<script src="assets/jquery/jquery.js"></script>-->
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="assets/js/app.js"></script>
   </body>
 </html>

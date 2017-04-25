@@ -1,28 +1,28 @@
-<div class="top-bar">
-  <div class="top-bar-left">
-    <ul class="dropdown menu" data-dropdown-menu>
-      <li class="menu-text">Site Title</li>
-      <li>
-        <a href="#">One</a>
-        <ul class="menu vertical">
-          <li><a href="#">One</a></li>
-          <li><a href="#">Two</a></li>
-          <li><a href="#">Three</a></li>
-        </ul>
-      </li>
-      <li><a href="#">Two</a></li>
-      <li><a href="#">Three</a></li>
-    </ul>
-  </div>
-  <div class="top-bar-right">
-    <ul class="menu">
-      <li><input type="search" placeholder="Search"></li>
-      <li><button type="button" class="button">Search</button></li>
-    </ul>
-  </div>
+<nav class="top-bar topbar-responsive">
+<div class="top-bar-title">
+
+	<span data-responsive-toggle="topbar-responsive" data-hide-for="medium">
+		<button class="menu-icon" type="button" data-toggle></button>
+	</span>
+	<a class="topbar-responsive-logo" href="#">
+
+		<img src="{{root}}assets/img/logo.svg" alt="Home">
+
+		<strong>testing</strong></a>
 </div>
-
-
-<a href="/" title="Home" rel="home">
-  <img src="{{root}}assets/img/logo.svg" alt="Home">
-</a>
+<div id="topbar-responsive" class="topbar-responsive-links">
+	<div class="top-bar-right">
+		<ul class="menu simple vertical medium-horizontal">
+			<li><a href="#">Home</a></li>
+			<li><a href="#">About</a></li>
+			<li><a href="#">Services</a></li>
+			<li><a href="#">Works</a></li>
+			<li><a href="#">News</a></li>
+			<li><a href="#">Contact</a></li>
+			<li>
+				<button type="button" class="button hollow topbar-responsive-button">Categories</button>
+			</li>
+		</ul>
+	</div>
+</div>
+</nav>
