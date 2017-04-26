@@ -17,7 +17,7 @@ const $ = plugins();
 const PRODUCTION = !!(yargs.argv.production);
 
 // Load settings from settings.yml
-const { COMPATIBILITY, PORT, PROXY, UNCSS_OPTIONS, PATHS } = loadConfig();
+const { COMPATIBILITY, PORT, UNCSS_OPTIONS, PATHS } = loadConfig();
 
 function loadConfig() {
   let ymlFile = fs.readFileSync('config.yml', 'utf8');
@@ -119,34 +119,7 @@ function images() {
 // Start a server with BrowserSync to preview the site in
 function server(done) {
   browser.init({
-	//proxy: "www.lmmontgomery.ca",
-	proxy: PROXY,
-
-snippetOptions: {
-        rule: {
-            match: /<\/head>/i,
-            fn: function (snippet, match) {
-                return '<link rel="stylesheet" type="text/css" href="/app.css"/>' + snippet + match;
-            }
-        }
-    },
-	//serveStatic: [
-		//{
-			//route: '/existing/remote/css',
-			//dir: 'src/local/css'
-		//},
-		//{
-			//route: '/other/remote/js',
-			//dir: 'src/local/js'
-		//}
-		//],
-
-	serveStatic: ["dist/assets/css"],
-	files: "dist/assets/css/app.css"
-
-	//see https://github.com/rdrew/sirius/blob/master/gulpfile.js for the key to this stuff
-
-    //server: PATHS.dist, port: PORT
+    server: PATHS.dist, port: PORT
   });
   done();
 }

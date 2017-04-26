@@ -50,3 +50,8 @@
 @include motion-ui-animations;
 
 @import 'init';
+
+p {
+	display: none  !important;
+	
+}
