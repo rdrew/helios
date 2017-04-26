@@ -4,6 +4,7 @@
 @import 'foundation';
 @import 'motion-ui';
 
+
 @include foundation-global-styles;
 //@include foundation-grid;
 @include foundation-flex-grid;
@@ -52,6 +53,6 @@
 @import 'init';
 
 p {
-	display: none  !important;
+	/*display: none  !important;*/
 	
 }

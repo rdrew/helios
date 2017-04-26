@@ -5,6 +5,7 @@
   "main": "gulpfile.js",
   "scripts": {
     "start": "gulp",
+    "debug": "iron-node ./gulpfile.babel.js",
     "build": "gulp build --production"
   },
   "author": "ZURB <foundation@zurb.com>",
@@ -30,6 +31,7 @@
     "js-yaml": "^3.4.6",
     "panini": "^1.3.0",
     "rimraf": "^2.4.3",
+    "serve-static": "^1.12.1",
     "style-sherpa": "^1.0.0",
     "yargs": "^3.8.0"
   },
@@ -42,7 +44,9 @@
     "email": "foundation@zurb.com"
   },
   "babel": {
-    "presets": ["es2015"]
+    "presets": [
+      "es2015"
+    ]
   },
   "private": true
 }

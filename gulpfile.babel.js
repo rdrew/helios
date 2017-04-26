@@ -117,36 +117,31 @@ function images() {
 }
 
 // Start a server with BrowserSync to preview the site in
+//const findJs = new RegExp("@import.*\/" + _themeName + "\/build\/css.*", "g");
+//const findCss = new RegExp("@import.*\/" + _themeName + "\/build\/css.*", "g");
+
 function server(done) {
   browser.init({
-	//proxy: "www.lmmontgomery.ca",
+
 	proxy: PROXY,
-
-snippetOptions: {
-        rule: {
-            match: /<\/head>/i,
-            fn: function (snippet, match) {
-                return '<link rel="stylesheet" type="text/css" href="/app.css"/>' + snippet + match;
-            }
-        }
-    },
-	//serveStatic: [
-		//{
-			//route: '/existing/remote/css',
-			//dir: 'src/local/css'
-		//},
-		//{
-			//route: '/other/remote/js',
-			//dir: 'src/local/js'
-		//}
-		//],
-
-	serveStatic: ["dist/assets/css"],
+	serveStatic: ["dist/assets"],
 	files: "dist/assets/css/app.css"
+	rewriteRules: [
+		{
+            match: /<link.*amars*\/dist\/assets\/css\/app.*/g,
+            fn: function (req, res, match) {
+                return '<link rel="stylesheet" type="text/css" href="/css/app.css"/>';
+			}
+		},
+		{
+            match: /<script.*amars*\/dist\/assets\/js\/app.*/g,
+            fn: function (req, res, match) {
+				return '<script src="/js/app.js"></script>';
+			}
+		}
+	],
 
-	//see https://github.com/rdrew/sirius/blob/master/gulpfile.js for the key to this stuff
-
-    //server: PATHS.dist, port: PORT
+		
   });
   done();
 }
