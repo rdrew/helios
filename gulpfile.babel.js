@@ -17,7 +17,7 @@ const $ = plugins();
 const PRODUCTION = !!(yargs.argv.production);
 
 // Load settings from settings.yml
-const { COMPATIBILITY, PORT, PROXY, UNCSS_OPTIONS, PATHS } = loadConfig();
+const { COMPATIBILITY, PORT, PROXY, THEMENAME, UNCSS_OPTIONS, PATHS } = loadConfig();
 
 function loadConfig() {
   let ymlFile = fs.readFileSync('config.yml', 'utf8');
@@ -28,9 +28,14 @@ function loadConfig() {
 gulp.task('build',
  gulp.series(clean, gulp.parallel(pages, sass, javascript, images, copy), styleGuide));
 
-// Build the site, run the server, and watch for file changes
+// LOCAL: Build the site, run the server, and watch for file changes
+gulp.task('localDev',
+  gulp.series('build', serverLocal, watch));
+
+// REMOTE: Build the site, run the server, and watch for file changes
 gulp.task('default',
-  gulp.series('build', server, watch));
+  gulp.series('build', serverRemote, watch));
+
 
 // Delete the "dist" folder
 // This happens every time a build starts
@@ -116,19 +121,21 @@ function images() {
     .pipe(gulp.dest(PATHS.dist + '/assets/img'));
 }
 
-// Start a server with BrowserSync to preview the site in
-//const findJs = new RegExp("@import.*\/" + _themeName + "\/build\/css.*", "g");
-//const findCss = new RegExp("@import.*\/" + _themeName + "\/build\/css.*", "g");
+// Start a proxy server with Browsersync + regex file swapping
+							
+function serverRemote(done) {
 
-function server(done) {
+const findCss = new RegExp("<link.*" + THEMENAME + "*\/dist\/assets\/css\/app.*", "g");
+const findJs = new RegExp("<script.*" + THEMENAME + "*\/dist\/assets\/js\/app.*", "g");
+
   browser.init({
 
 	proxy: PROXY,
 	serveStatic: ["dist/assets"],
-	files: "dist/assets/css/app.css"
+	files: "dist/assets/css/app.css",
 	rewriteRules: [
 		{
-            match: /<link.*amars*\/dist\/assets\/css\/app.*/g,
+            match: findCss,
             fn: function (req, res, match) {
                 return '<link rel="stylesheet" type="text/css" href="/css/app.css"/>';
 			}
@@ -139,9 +146,17 @@ function server(done) {
 				return '<script src="/js/app.js"></script>';
 			}
 		}
-	],
+	]
 
 		
+  });
+  done();
+}
+
+// Start a local server with BrowserSync to preview the site in
+function serverLocal(done) {
+  browser.init({
+    server: PATHS.dist, port: PORT
   });
   done();
 }
@@ -162,3 +177,4 @@ function watch() {
   gulp.watch('src/assets/img/**/*').on('all', gulp.series(images, browser.reload));
   gulp.watch('src/styleguide/**').on('all', gulp.series(styleGuide, browser.reload));
 }
+

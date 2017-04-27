@@ -5,6 +5,7 @@
   "main": "gulpfile.js",
   "scripts": {
     "start": "gulp",
+	"local": "gulp localDev",
     "debug": "iron-node ./gulpfile.babel.js",
     "build": "gulp build --production"
   },
