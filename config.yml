@@ -1,4 +1,5 @@
 PROXY: "amars.discoveryspace.ca"
+LOCALPROXY: "http://d8-dev.local/"
 
 THEMENAME: "amars"
 

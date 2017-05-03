@@ -48,6 +48,23 @@
     {{ page.header }}
   </header>
 
+<!--  <div class="row">
+    <div class="small-12 columns small-order-1 medium-order-2 menu-bar__wrapper">
+      <div class="title-bar" data-responsive-toggle="menu-search-wrapper" data-hide-for="medium">
+        <button class="menu-icon" type="button" data-toggle></button>
+        <div class="title-bar-title">Menu</div>
+      </div>
+      <div class="top-bar" id="menu-search-wrapper">
+        <div class="top-bar-left main-menu__wrapper">
+          {{ page.menus }}
+        </div>
+        <div class="top-bar-right search__wrapper">
+          {{ page.search }}
+        </div>
+      </div>
+    </div>
+</div> -->
+
   <div class="row">
     <div class="small-12 columns show-for-medium breadcrumb__wrapper">
       {{ page.breadcrumb }}
