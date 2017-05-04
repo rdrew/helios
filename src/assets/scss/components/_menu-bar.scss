@@ -1,5 +1,9 @@
 // Styling for the header component.
+header {
 
+  background: $black;
+
+}
 .menu-bar__wrapper {
   padding: 0;
 
@@ -25,8 +29,24 @@ $topbar-responsive-animation-type: fade-in; // or use slide-down or none
   .menu {
     background: $topbar-responsive-bg;
 
-    li:last-of-type {
+    li.is-dropdown-submenu-parent:last-of-type {
       margin-right: 0;
+      border: 2px solid $white;
+      color: $white;
+      border-color: $white;
+      border-radius: 5000px;
+      background-color: lighten($topbar-responsive-bg, 10%);
+      transition: color 0.15s ease-in, border-color 0.15s ease-in;
+
+      &:hover {
+        color: lighten($topbar-responsive-bg, 60%);
+        border-color: lighten($topbar-responsive-bg, 60%);
+      }
+
+      @media screen and (max-width: 39.9375em) {
+        width: 100%;
+        margin: 0.875rem 0;
+      }
     }
 
     a {
@@ -41,7 +61,7 @@ $topbar-responsive-animation-type: fade-in; // or use slide-down or none
         padding: 0.875rem 0;
       }
     }
-
+/*may be able to remove*/
     .topbar-responsive-button {
       color: $white;
       border-color: $white;
