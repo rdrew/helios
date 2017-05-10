@@ -64,6 +64,12 @@
         {{ page.sidebar }}
       </aside>
     {% endif %}
+
+    {% if page.feature %}
+      <section class="small-12 columns row  content__feature" role="complementary">
+        {{ page.feature }}
+      </section>
+    {% endif %}
     {#<footer class="small-12 columns content__footer" role="contentinfo">#}
       {#<hr />#}
       {#{{ page.footer }}#}

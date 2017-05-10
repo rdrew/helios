@@ -3,11 +3,11 @@
 @import 'settings';
 @import 'foundation';
 @import 'motion-ui';
-
+@import 'foundation-icons';
 
 @include foundation-global-styles;
-//@include foundation-grid;
-@include foundation-flex-grid;
+@include foundation-grid;
+/*@include foundation-flex-grid;*/
 @include foundation-typography;
 @include foundation-button;
 @include foundation-forms;
@@ -52,7 +52,3 @@
 
 @import 'init';
 
-p {
-	/*display: none  !important;*/
-	
-}

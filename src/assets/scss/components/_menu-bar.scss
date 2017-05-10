@@ -1,4 +1,17 @@
 // Styling for the header component.
+
+.top-bar-title {
+  width: rem-calc(600);
+  .site_logo {
+    @include grid-column(30%);
+    border-right: 1px solid $white;
+  }
+  .name_slogan {
+    @include grid-column(70%);
+  }
+
+}
+
 header {
 
   background: $black;
@@ -12,7 +25,7 @@ header {
   }
 }
 .topbar-responsive-logo img {
-width: rem-calc(150);
+  width: rem-calc(150);
 }
 $topbar-responsive-bg: #2c3840;
 $topbar-responsive-animation-type: fade-in; // or use slide-down or none
@@ -31,12 +44,24 @@ $topbar-responsive-animation-type: fade-in; // or use slide-down or none
 
     li.is-dropdown-submenu-parent:last-of-type {
       margin-right: 0;
-      border: 2px solid $white;
+      border: 1px solid $white;
       color: $white;
       border-color: $white;
       border-radius: 5000px;
       background-color: lighten($topbar-responsive-bg, 10%);
       transition: color 0.15s ease-in, border-color 0.15s ease-in;
+      > a {
+        line-height:1.5;
+        @extend .fi-eye;
+        &:before {
+          margin-right: rem-calc( 4px );
+          font-size: rem-calc(24px);
+        }
+        &:after {
+          display: none;
+        }
+
+      }
 
       &:hover {
         color: lighten($topbar-responsive-bg, 60%);
@@ -61,7 +86,7 @@ $topbar-responsive-animation-type: fade-in; // or use slide-down or none
         padding: 0.875rem 0;
       }
     }
-/*may be able to remove*/
+    /*may be able to remove*/
     .topbar-responsive-button {
       color: $white;
       border-color: $white;
@@ -80,8 +105,8 @@ $topbar-responsive-animation-type: fade-in; // or use slide-down or none
     }
   }
 
-   @media screen and (max-width: 39.9375em) {
-     padding: 0.75rem;
+  @media screen and (max-width: 39.9375em) {
+    padding: 0.75rem;
 
     .top-bar-title {
       position: relative;
@@ -102,7 +127,35 @@ $topbar-responsive-animation-type: fade-in; // or use slide-down or none
       }
     }
   }
+  //dropdown
+  .is-dropdown-submenu {
+    right: 20px !important;
+    border-top: 0px;
+    //background: white !important;
+    background-color: lighten($topbar-responsive-bg, 10%);
+    min-width:initial;
+    width: 146px;
+    padding: $global-padding/2;
+
+  }
+  .is-dropdown-submenu-item {
+
+      &:hover {
+        color:$white;
+       background-color: $topbar-responsive-bg;
+      }
+    padding: $global-padding/2;
+  }
 }
+
+.topbar-responsive .menu a {
+ &[href*="/about"] { @extend .fi-info}
+ &[href*="/donate"] {  @extend .fi-dollar }
+  &[href*="/sighting-report-map"] {   @extend .fi-map }
+  &:before { margin-right: rem-calc( 4px ); }
+  
+}
+//.topbar-responsive .menu a[href*="/about"] { }
 
 @keyframes fadeIn {
   from {

@@ -1,0 +1,18 @@
+.sighting-report__form {
+  @include callout;
+  
+}
+.sighting-report {
+  .row {
+    max-width: 60rem; 
+  }
+  legend, label {
+    margin-top: $global-margin;
+  @extend h4;
+  font-family: $body-font-family;
+  }
+  .description {
+  font-size: rem-calc(14);
+  }
+
+}

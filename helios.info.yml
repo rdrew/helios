@@ -15,5 +15,6 @@ regions:
   breadcrumb: Breadcrumb
   help: Help
   content: Content
+  feature: Feature
   sidebar: Sidebar
   footer: Footer

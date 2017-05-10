@@ -54,6 +54,7 @@ footer > div {
 
   &__menu-items {
     @include menu-direction(vertical);
+    font-size: rem-calc(14);
   }
 
   &__menu-item a {
@@ -63,10 +64,19 @@ footer > div {
   }
 }
 .footeraddress {
+  margin-top: $global-margin;
   .address, .links-last a {
     color: $white;
   }
-
+  .links-last {
+  
+    font-size: rem-calc(12);
+  }
+  .address {
+  
+    font-family: $header-font-family;
+  
+  }
 }
 .inner-footeraddress {
 
