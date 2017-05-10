@@ -1,11 +1,17 @@
 
+.content__feature {
+  padding-bottom: $global-padding*2;
 
+}
 
 /*imove rhis to its own partial*/
 
 
 .lp-card__container {
-/*@include grid-column(4);*/
+@include grid-column();
+@include breakpoint(medium) {
+  @include grid-column(4);
+}
 }
 .lp-block {
   @include card-container;

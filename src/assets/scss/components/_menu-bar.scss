@@ -72,7 +72,8 @@ header {
 }
 $topbar-responsive-bg: #2c3840;
 $topbar-responsive-animation-type: fade-in; // or use slide-down or none
-
+$dropdown-button-color: $blue;
+/*$dropdown-button-color: lighten($topbar-responsive-bg, 10%);*/
 .topbar-responsive {
   background: $topbar-responsive-bg;
   padding: 1rem 1.5rem;
@@ -95,7 +96,7 @@ $topbar-responsive-animation-type: fade-in; // or use slide-down or none
       color: $white;
       border-color: $white;
       border-radius: 5000px;
-      background-color: lighten($topbar-responsive-bg, 10%);
+      background-color: $dropdown-button-color;
       transition: color 0.15s ease-in, border-color 0.15s ease-in;
       > a {
         line-height:1.5;
@@ -179,7 +180,7 @@ $topbar-responsive-animation-type: fade-in; // or use slide-down or none
     right: 20px !important;
     border-top: 0px;
     //background: white !important;
-    background-color: lighten($topbar-responsive-bg, 10%);
+    background-color: $dropdown-button-color;
     min-width:initial;
     width: 146px;
     padding: $global-padding/2;
