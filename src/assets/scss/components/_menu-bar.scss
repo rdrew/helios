@@ -1,5 +1,66 @@
 // Styling for the header component.
 
+/*.top-bar-title {*/
+.top-bar-title {
+
+  .site_logo {
+    border-right: 1px solid $white;
+    padding-right: $global-padding/2;
+    margin-right: $global-margin/2;
+    //display: inline-block;
+
+    float: left;
+
+    max-width: rem-calc(150);
+    margin-bottom: 5px;
+
+    max-width: rem-calc(150);
+  }
+  @include breakpoint( large down ) {
+    .site_name {
+
+      line-height: 1.4;
+      margin-top: rem-calc(6);
+      float: left;
+    }
+    .site_slogan {
+
+      margin-top: $global-margin/2;
+      display:block;
+      font-size: rem-calc(16);
+      clear:both;
+    }
+  }
+  @include breakpoint(large) {
+    width: rem-calc(600);
+
+    .site_logo {
+      max-width: rem-calc(150);
+    }
+    .site_slogan {
+      line-height: 1;
+    }
+  }
+
+
+
+}
+/*width: rem-calc(600);*/
+/*.site_logo {*/
+/*@include grid-column(30%);*/
+/*border-right: 1px solid $white;*/
+/*}*/
+/*.name_slogan {*/
+/*@include grid-column(70%);*/
+/*}*/
+
+/*}*/
+
+header {
+
+  background: $black;
+
+}
 .menu-bar__wrapper {
   padding: 0;
 
@@ -8,11 +69,11 @@
   }
 }
 .topbar-responsive-logo img {
-width: rem-calc(150);
 }
 $topbar-responsive-bg: #2c3840;
 $topbar-responsive-animation-type: fade-in; // or use slide-down or none
-
+$dropdown-button-color: $blue;
+/*$dropdown-button-color: lighten($topbar-responsive-bg, 10%);*/
 .topbar-responsive {
   background: $topbar-responsive-bg;
   padding: 1rem 1.5rem;
@@ -23,10 +84,42 @@ $topbar-responsive-animation-type: fade-in; // or use slide-down or none
   }
 
   .menu {
+    @include breakpoint( small down ) {
+      @include menu-direction( vertical );
+    }
+
     background: $topbar-responsive-bg;
 
-    li:last-of-type {
+    li.is-dropdown-submenu-parent:last-of-type {
       margin-right: 0;
+      border: 1px solid $white;
+      color: $white;
+      border-color: $white;
+      border-radius: 5000px;
+      background-color: $dropdown-button-color;
+      transition: color 0.15s ease-in, border-color 0.15s ease-in;
+      > a {
+        line-height:1.5;
+        @extend .fi-eye;
+        &:before {
+          margin-right: rem-calc( 4px );
+          font-size: rem-calc(24px);
+        }
+        &:after {
+          display: none;
+        }
+
+      }
+
+      &:hover {
+        color: lighten($topbar-responsive-bg, 60%);
+        border-color: lighten($topbar-responsive-bg, 60%);
+      }
+
+      @media screen and (max-width: 39.9375em) {
+        width: 100%;
+        margin: 0.875rem 0;
+      }
     }
 
     a {
@@ -41,7 +134,7 @@ $topbar-responsive-animation-type: fade-in; // or use slide-down or none
         padding: 0.875rem 0;
       }
     }
-
+    /*may be able to remove*/
     .topbar-responsive-button {
       color: $white;
       border-color: $white;
@@ -60,8 +153,8 @@ $topbar-responsive-animation-type: fade-in; // or use slide-down or none
     }
   }
 
-   @media screen and (max-width: 39.9375em) {
-     padding: 0.75rem;
+  @media screen and (max-width: 39.9375em) {
+    padding: 0.75rem;
 
     .top-bar-title {
       position: relative;
@@ -82,7 +175,35 @@ $topbar-responsive-animation-type: fade-in; // or use slide-down or none
       }
     }
   }
+  //dropdown
+  .is-dropdown-submenu {
+    right: 20px !important;
+    border-top: 0px;
+    //background: white !important;
+    background-color: $dropdown-button-color;
+    min-width:initial;
+    width: 146px;
+    padding: $global-padding/2;
+
+  }
+  .is-dropdown-submenu-item {
+
+    &:hover {
+      color:$white;
+      background-color: $topbar-responsive-bg;
+    }
+    padding: $global-padding/2;
+  }
 }
+
+.topbar-responsive .menu a {
+  &[href*="/about"] { @extend .fi-info}
+  &[href*="/donate"] {  @extend .fi-dollar }
+  &[href*="/sighting-report-map"] {   @extend .fi-map }
+  &:before { margin-right: rem-calc( 4px ); }
+
+}
+//.topbar-responsive .menu a[href*="/about"] { }
 
 @keyframes fadeIn {
   from {

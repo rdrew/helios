@@ -44,25 +44,10 @@
  */
 #}
 <div class="l-main">
-  <div class="row">
-    <header class="small-12 columns small-order-2 medium-order-1 header__wrapper" role="banner">
-      {{ page.header }}
-    </header>
-    <div class="small-12 columns small-order-1 medium-order-2 menu-bar__wrapper">
-      <div class="title-bar" data-responsive-toggle="menu-search-wrapper" data-hide-for="medium">
-        <button class="menu-icon" type="button" data-toggle></button>
-        <div class="title-bar-title">Menu</div>
-      </div>
-      <div class="top-bar" id="menu-search-wrapper">
-        <div class="top-bar-left main-menu__wrapper">
-          {{ page.menus }}
-        </div>
-        <div class="top-bar-right search__wrapper">
-          {{ page.search }}
-        </div>
-      </div>
-    </div>
-  </div>
+  <header class="small-12 columns small-order-2 medium-order-1 header__wrapper" role="banner">
+    {{ page.header }}
+  </header>
+
   <div class="row">
     <div class="small-12 columns show-for-medium breadcrumb__wrapper">
       {{ page.breadcrumb }}
@@ -79,9 +64,60 @@
         {{ page.sidebar }}
       </aside>
     {% endif %}
-    <footer class="small-12 columns content__footer" role="contentinfo">
-      <hr />
+
+    {% if page.feature %}
+      <section class="small-12 columns row  content__feature" role="complementary">
+        {{ page.feature }}
+      </section>
+    {% endif %}
+    {#<footer class="small-12 columns content__footer" role="contentinfo">#}
+      {#<hr />#}
+      {#{{ page.footer }}#}
+    {#</footer>#}
+  </div>
+  <div class="footer-wrapper">
+    <footer class="content__footer" role="contentinfo">
       {{ page.footer }}
     </footer>
+    <div class="subfooter">
+      <div class="footeraddress ">
+        <div class="inner-footeraddress">
+          <div class="addressleft">
+            <div class="address">
+              550 University Avenue, Charlottetown<br>
+              Prince Edward Island, Canada C1A 4P3<br>
+            </div>
+            <ul class="menu links-last">
+              <li class="menu-item">
+                <a href="http://www.upei.ca/emergency/">Emergency Preparedness</a> 
+              </li>
+              <li class="menu-item">
+                <a href="http://home.upei.ca/about-upei/publications">Publications</a> 
+              </li>
+              <li class="menu-item">
+                <a href="https://cab.upei.ca/privacy-committee">Privacy Policy</a> 
+              </li>
+              <li class="menu-item">
+                <a href="http://home.upei.ca/disclaimer">Disclaimer</a> 
+              </li>
+              <li class="menu-item">
+                <a href="http://home.upei.ca/about-website">About this Website</a> 
+              </li>
+              <li class="menu-item">
+                <a href="http://home.upei.ca/directory">Contact UPEI</a>            </li>
+            </ul>
+          </div>
+          <div class="footer_icons">
+            <div class="socialmedia">
+              <a class="noicon" href="http://facebook.com/UniversityofPEI"><img src="https://files.upei.ca/misc/social/upei_facebook.png"></a>
+              <a class="noicon" href="http://twitter.com/upei"><img src="https://files.upei.ca/misc/social/upei_twitter.png"></a>
+              <a class="noicon" href="http://youtube.com/UofPEI"><img src="https://files.upei.ca/misc/social/upei_youtube.png"></a>
+              <a class="noicon" href="http://instagram.com/upei"><img src="https://files.upei.ca/misc/social/upei_instagram.png"></a>
+            </div>
+            <div class="footerlogo"><img src="https://files.upei.ca/misc/shieldfooter.png"></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

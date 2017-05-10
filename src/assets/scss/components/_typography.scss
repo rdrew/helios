@@ -1,0 +1,14 @@
+.site_name {
+  font-family: $header-font-family;
+font-size:rem-calc(31);
+line-height: 1;
+
+color: $white;
+margin-bottom: 0;
+
+}
+.subheader {
+  font-size: rem-calc(20);
+  font-family: $body-font-family;
+  margin: 0;
+}

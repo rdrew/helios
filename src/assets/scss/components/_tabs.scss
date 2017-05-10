@@ -3,7 +3,9 @@
 .tabs,
 .tabs--primary,
 .tabs--secondary {
-  border-bottom: 2px solid $light-gray;
+  @include menu-direction(vertical);
+
+
   margin: 1rem 0;
 
   a {
@@ -14,10 +16,21 @@
   }
 
   li:first-child a {
-    margin-left: 0.5rem;
   }
 
   a.is-active {
     background-color: $white;
+  }
+  @include breakpoint( medium ) {
+    @include menu-direction(horizontal);
+
+  a {
+    margin-right: 0.5rem;
+  }
+
+  li:first-child a {
+    margin-left: 0.5rem;
+  }
+  border-bottom: 2px solid $light-gray;
   }
 }

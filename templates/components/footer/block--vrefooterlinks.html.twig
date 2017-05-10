@@ -1,0 +1,14 @@
+{% set footer_links = { test: 'yay', 
+                        test2: 'woooot' }%}
+
+<div{{ attributes.addClass('block__wrapper') }}>
+  {{ title_prefix }}
+  {% if label %}
+    <h4{{ title_attributes }}>{{ label }}</h4>
+  {% endif %}
+  {{ title_suffix }}
+  {% block content %}
+    {{ content }}
+  {% endblock %}
+</div>
+{{ footer_links.test }}

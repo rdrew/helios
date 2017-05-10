@@ -1,4 +1,4 @@
-{% extends "block.html.twig" %}
+{#{% extends "block.html.twig" %}#}
 {#
 /**
  * @file
@@ -13,14 +13,33 @@
  * - site_slogan: Slogan for site as defined in Site information settings.
  */
 #}
-{% block content %}
-  {% if site_logo %}
-    <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">
-      <img src="{{ site_logo }}" alt="{{ 'Home'|t }}" />
-    </a>
-  {% endif %}
-  {% if site_name %}
-    <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">{{ site_name }}</a>
-  {% endif %}
-  {{ site_slogan }}
-{% endblock %}
+<div class="top-bar-title">
+  {% block content %}
+
+	<span data-responsive-toggle="topbar-responsive" data-hide-for="medium" style="display: none;">
+		<button class="menu-icon" type="button" data-toggle=""></button>
+	</span>
+
+
+    {% if site_logo %}
+      <a class="topbar-responsive-logo" href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">
+        <img class="site_logo" src="{{ site_logo }}" alt="{{ 'Home'|t }}" />
+      </a>
+    {% endif %}
+    
+
+    {% if site_name %}
+      <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home"><h2 class="site_name">{{ site_name }}</h2></a>
+    {% endif %}
+
+
+
+    <h3 class="site_slogan subheader">
+      {{ site_slogan }}
+    </h3>
+
+
+  {% endblock %}
+</div>
+
+

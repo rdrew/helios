@@ -17,7 +17,7 @@ const $ = plugins();
 const PRODUCTION = !!(yargs.argv.production);
 
 // Load settings from settings.yml
-const { COMPATIBILITY, PORT, PROXY, THEMENAME, UNCSS_OPTIONS, PATHS } = loadConfig();
+const { COMPATIBILITY, PORT, PROXY, LOCALPROXY, THEMENAME, UNCSS_OPTIONS, PATHS } = loadConfig();
 
 function loadConfig() {
   let ymlFile = fs.readFileSync('config.yml', 'utf8');
@@ -27,6 +27,10 @@ function loadConfig() {
 // Build the "dist" folder by running all of the below tasks
 gulp.task('build',
  gulp.series(clean, gulp.parallel(pages, sass, javascript, images, copy), styleGuide));
+
+// LOCAL_STATIC: Build the site, run the server, and watch for file changes
+gulp.task('localStatic',
+  gulp.series('build', serverStatic, watch));
 
 // LOCAL: Build the site, run the server, and watch for file changes
 gulp.task('localDev',
@@ -153,8 +157,17 @@ const findJs = new RegExp("<script.*" + THEMENAME + "*\/dist\/assets\/js\/app.*"
   done();
 }
 
-// Start a local server with BrowserSync to preview the site in
+// Start a local serve with BrowserSync to preview the site in
 function serverLocal(done) {
+  browser.init({
+    proxy: LOCALPROXY,
+    injectChanges: true
+  });
+  done();
+}
+
+// Start a local server with BrowserSync to preview the site in
+function serverStatic(done) {
   browser.init({
     server: PATHS.dist, port: PORT
   });

@@ -41,31 +41,34 @@
 //  36. Top Bar
 
 @import 'util/util';
+@import url('https://fonts.googleapis.com/css?family=Oxygen:300,400,700|Rufina:400,700');
 
 // 1. Global
 // ---------
 
 $global-font-size: 100%;
-$global-width: rem-calc(1200);
+$global-width: rem-calc(1280);
 $global-lineheight: 1.5;
-$foundation-palette: (
-  primary: #2199e8,
-  secondary: #777,
-  success: #3adb76,
-  warning: #ffae00,
-  alert: #ec5840,
-);
 $light-gray: #e6e6e6;
 $medium-gray: #cacaca;
 $dark-gray: #8a8a8a;
 /*$black: #0a0a0a;*/
 $black: #2c3840;
 $white: #fefefe;
+$blue: #074e68;
+$foundation-palette: (
+  primary: lighten( $blue, 10% ),
+  secondary: #777,
+  success: #3adb76,
+  warning: #ffae00,
+  alert: #ec5840,
+);
 $body-background: $white;
 $body-font-color: $black;
-$body-font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
+$body-font-family:  'Oxygen', Arial, sans-serif;
 $body-antialiased: true;
 $global-margin: 1rem;
+
 $global-padding: 1rem;
 $global-weight-normal: normal;
 $global-weight-bold: bold;
@@ -103,28 +106,47 @@ $block-grid-max: 8;
 // 4. Base Typography
 // ------------------
 
-$header-font-family: $body-font-family;
+/*$header-font-family: $body-font-family;*/
+$header-font-family: 'Rufina', serif;
 $header-font-weight: $global-weight-normal;
 $header-font-style: normal;
 $font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;
+/*$header-sizes: (*/
 $header-sizes: (
   small: (
-    'h1': 24,
-    'h2': 20,
-    'h3': 19,
-    'h4': 18,
-    'h5': 17,
+    'h1': 20,
+    'h2': 19,
+    'h3': 18,
+    'h4': 17,
+    'h5': 16,
     'h6': 16,
   ),
   medium: (
-    'h1': 48,
-    'h2': 40,
-    'h3': 31,
-    'h4': 25,
-    'h5': 20,
+    'h1': 40,
+    'h2': 31,
+    'h3': 25,
+    'h4': 20,
+    'h5': 16,
     'h6': 16,
   ),
 );
+  /*small: (*/
+    /*'h1': 24,*/
+    /*'h2': 20,*/
+    /*'h3': 19,*/
+    /*'h4': 18,*/
+    /*'h5': 17,*/
+    /*'h6': 16,*/
+  /*),*/
+  /*medium: (*/
+    /*'h1': 48,*/
+    /*'h2': 40,*/
+    /*'h3': 31,*/
+    /*'h4': 25,*/
+    /*'h5': 20,*/
+    /*'h6': 16,*/
+  /*),*/
+/*);*/
 $header-color: inherit;
 $header-lineheight: 1.4;
 $header-margin-bottom: 0.5rem;
@@ -261,7 +283,7 @@ $buttongroup-expand-max: 6;
 // 13. Callout
 // -----------
 
-$callout-background: $white;
+$callout-background: $medium-gray;
 $callout-background-fade: 85%;
 $callout-border: 1px solid rgba($black, 0.25);
 $callout-margin: 0 0 1rem 0;

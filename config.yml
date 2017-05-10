@@ -1,4 +1,6 @@
-PROXY: "amars.discoveryspace.ca"
+#PROXY: "amars.discoveryspace.ca"
+PROXY: "d8-dev.local"
+LOCALPROXY: "d8-dev.local"
 
 THEMENAME: "amars"
 
