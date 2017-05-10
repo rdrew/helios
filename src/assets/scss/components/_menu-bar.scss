@@ -1,16 +1,60 @@
 // Styling for the header component.
 
+/*.top-bar-title {*/
 .top-bar-title {
-  width: rem-calc(600);
+
   .site_logo {
-    @include grid-column(30%);
     border-right: 1px solid $white;
+    padding-right: $global-padding/2;
+    margin-right: $global-margin/2;
+    //display: inline-block;
+
+    float: left;
+
+    max-width: rem-calc(150);
+    margin-bottom: 5px;
+
+    max-width: rem-calc(150);
   }
-  .name_slogan {
-    @include grid-column(70%);
+  @include breakpoint( large down ) {
+    .site_name {
+
+      line-height: 1.4;
+      margin-top: rem-calc(6);
+      float: left;
+    }
+    .site_slogan {
+
+      margin-top: $global-margin/2;
+      display:block;
+      font-size: rem-calc(16);
+      clear:both;
+    }
+  }
+  @include breakpoint(large) {
+    width: rem-calc(600);
+
+    .site_logo {
+      max-width: rem-calc(150);
+    }
+    .site_slogan {
+      line-height: 1;
+    }
   }
 
+
+
 }
+/*width: rem-calc(600);*/
+/*.site_logo {*/
+/*@include grid-column(30%);*/
+/*border-right: 1px solid $white;*/
+/*}*/
+/*.name_slogan {*/
+/*@include grid-column(70%);*/
+/*}*/
+
+/*}*/
 
 header {
 
@@ -25,7 +69,6 @@ header {
   }
 }
 .topbar-responsive-logo img {
-  width: rem-calc(150);
 }
 $topbar-responsive-bg: #2c3840;
 $topbar-responsive-animation-type: fade-in; // or use slide-down or none
@@ -40,6 +83,10 @@ $topbar-responsive-animation-type: fade-in; // or use slide-down or none
   }
 
   .menu {
+    @include breakpoint( small down ) {
+      @include menu-direction( vertical );
+    }
+
     background: $topbar-responsive-bg;
 
     li.is-dropdown-submenu-parent:last-of-type {
@@ -140,20 +187,20 @@ $topbar-responsive-animation-type: fade-in; // or use slide-down or none
   }
   .is-dropdown-submenu-item {
 
-      &:hover {
-        color:$white;
-       background-color: $topbar-responsive-bg;
-      }
+    &:hover {
+      color:$white;
+      background-color: $topbar-responsive-bg;
+    }
     padding: $global-padding/2;
   }
 }
 
 .topbar-responsive .menu a {
- &[href*="/about"] { @extend .fi-info}
- &[href*="/donate"] {  @extend .fi-dollar }
+  &[href*="/about"] { @extend .fi-info}
+  &[href*="/donate"] {  @extend .fi-dollar }
   &[href*="/sighting-report-map"] {   @extend .fi-map }
   &:before { margin-right: rem-calc( 4px ); }
-  
+
 }
 //.topbar-responsive .menu a[href*="/about"] { }
 

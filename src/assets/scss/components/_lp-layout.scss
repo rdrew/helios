@@ -5,7 +5,7 @@
 
 
 .lp-card__container {
-@include grid-column(4);
+/*@include grid-column(4);*/
 }
 .lp-block {
   @include card-container;

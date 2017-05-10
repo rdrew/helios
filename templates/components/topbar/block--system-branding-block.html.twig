@@ -27,17 +27,17 @@
       </a>
     {% endif %}
     
-    <section class="name_slogan">
-      {% if site_name %}
-        <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home"><h2 class="site_name">{{ site_name }}</h2></a>
-      {% endif %}
+
+    {% if site_name %}
+      <a href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home"><h2 class="site_name">{{ site_name }}</h2></a>
+    {% endif %}
 
 
 
-      <h3 class="subheader">
-        {{ site_slogan }}
-      </h3>
-    </section>
+    <h3 class="site_slogan subheader">
+      {{ site_slogan }}
+    </h3>
+
 
   {% endblock %}
 </div>
