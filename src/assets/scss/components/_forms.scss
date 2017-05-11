@@ -1,19 +1,51 @@
+.node-form * {
+
+  box-sizing: border-box;
+
+}
 .sighting-report__form {
   @include callout;
-  margin: $global-margin*2 $global-margin;
-  
+  //margin: $global-margin*2 $global-margin;
+  margin-top: $global-margin * 2;
+
 }
 .sighting-report {
-  .row {
-    max-width: 60rem; 
+  fieldset {
+  @extend .fieldset;
   }
-  legend, label {
-    margin-top: $global-margin;
-  @extend h4;
-  font-family: $body-font-family;
+  legend {
+  
+    background: initial  !important;
+  
   }
+  summary {
+  
+    margin: $global-margin 0 ;
+  }
+  legend, summary, .js-form-type-select label {
+    //margin-top: $global-margin;
+    ////@extend h4;
+    font-family: $header-font-family;
+    font-size: 1.2rem;
+  }
+  .field--type-address .js-form-type-select label {
+    //margin-top: $global-margin;
+    ////@extend h4;
+    font-family: $body-font-family;
+    font-size: .875rem;
+  }
+
   .description {
-  font-size: rem-calc(14);
+    font-size: rem-calc(14);
   }
 
 }
+
+.sighting-report {
+  .row {
+    max-width: 60rem; 
+    padding: $global-padding * 2;
+  }
+
+}
+
