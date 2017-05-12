@@ -41,9 +41,9 @@
     }
   }
   @include breakpoint(1200px) {
-  
+
     width: rem-calc(547);
-  
+
   }
 
 
@@ -91,41 +91,44 @@ $dropdown-button-color: $blue;
   .menu {
     @include breakpoint( medium down ) {
       @include menu-direction( vertical );
+      margin-left: rem-calc(20px);
     }
 
     background: $topbar-responsive-bg;
 
-    li.is-dropdown-submenu-parent:last-of-type {
-      margin-right: 0;
-      border: 1px solid $white;
-      color: $white;
-      border-color: $white;
-      border-radius: 5000px;
-      background-color: $dropdown-button-color;
-      transition: color 0.15s ease-in, border-color 0.15s ease-in;
-      > a {
-        line-height:1.5;
-        @extend .fi-eye;
-        &:before {
-          margin-right: rem-calc( 4px );
-          font-size: rem-calc(24px);
-        }
-        &:after {
-          display: none;
-        }
-
-      }
-
-      &:hover {
-        color: lighten($topbar-responsive-bg, 60%);
-        border-color: lighten($topbar-responsive-bg, 60%);
-      }
-
-      @media screen and (max-width: 39.9375em) {
-        width: 100%;
-        margin: 0.875rem 0;
-      }
+      li.is-dropdown-submenu-parent:last-of-type {
+        @include breakpoint( large ) {
+        margin-right: 0;
+        border: 1px solid $white;
+        color: $white;
+        border-color: $white;
+        border-radius: 5000px;
+        background-color: $dropdown-button-color;
+        transition: color 0.15s ease-in, border-color 0.15s ease-in;
     }
+        > a {
+          line-height:1.5;
+          @extend .fi-eye;
+          &:before {
+            margin-right: rem-calc( 4px );
+            font-size: rem-calc(24px);
+          }
+          &:after {
+            display: none;
+          }
+
+        }
+
+        &:hover {
+          color: lighten($topbar-responsive-bg, 60%);
+          border-color: lighten($topbar-responsive-bg, 60%);
+        }
+
+        @media screen and (max-width: 39.9375em) {
+          width: 100%;
+          margin: 0.875rem 0;
+        }
+      }
 
     a {
       color: $white;
@@ -182,22 +185,36 @@ $dropdown-button-color: $blue;
   }
   //dropdown
   .is-dropdown-submenu {
+    @include breakpoint(medium down) {
+      display: block;
+      position: initial;
+      background-color: initial;
+      width: initial;
+      border: 0;
+    }
+    background-color: $dropdown-button-color;
     right: 20px !important;
     border-top: 0px;
     //background: white !important;
-    background-color: $dropdown-button-color;
     min-width:initial;
     width: 146px;
     padding: $global-padding/2;
 
   }
   .is-dropdown-submenu-item {
+    a {
+          padding: 0.7rem 1rem;
+              line-height: 1;
+    
+    }
+    @include breakpoint( large ) {
 
     &:hover {
       color:$white;
       background-color: $topbar-responsive-bg;
     }
-    padding: $global-padding/2;
+      padding: $global-padding/2;
+    }
   }
 }
 
