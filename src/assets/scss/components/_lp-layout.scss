@@ -1,6 +1,13 @@
+.menu--account .menu-item a {
+    @include button();
+    margin:0;
+}
+nav#block-useraccountmenu {
+        float: right;
 
+}
 .content__feature {
-  padding-bottom: $global-padding*2;
+    padding-bottom: $global-padding*2;
 
 }
 
@@ -8,20 +15,20 @@
 
 
 .lp-card__container {
-@include grid-column();
-@include breakpoint(medium) {
-  @include grid-column(4);
-}
+    @include grid-column();
+    @include breakpoint(medium) {
+        @include grid-column(4);
+    }
 }
 .lp-block {
-  @include card-container;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-  &:hover {
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-  }
+    @include card-container;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    &:hover {
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    }
 
-  border-width:0;
+    border-width:0;
 
   img {
     max-height: 290px;
