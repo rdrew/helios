@@ -2,9 +2,10 @@ global:
   version: VERSION
   css:
     base:
-      dist/assets/css/app.css: {}
+      dist/assets/css/app.css: { preprocess: false }
+      dist/assets/css/hacks.css: { preprocess: false }
   js:
-    dist/assets/js/app.js: {}
+    dist/assets/js/app.js: { preprocess: false }
   dependencies:
     - core/drupal
     - core/jquery
