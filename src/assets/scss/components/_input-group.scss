@@ -1,0 +1,24 @@
+.input-group-label {
+}
+#views-exposed-form-sighting-report-map-page-1 {
+    @extend .input-group;
+    margin-top: $global-margin;
+    #edit-action {
+        @extend .input-group-button;
+    }
+    input {
+        margin: 0;
+        font-size:1rem;
+        border-radius: 10px;
+    }
+}
+select#edit-type {
+    @extend .input-group-field;
+    max-width: 300px;
+
+}
+.path-sighting-report-map {
+    .content__main {
+        min-height: 400px;
+    }
+}
