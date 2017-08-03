@@ -5,4 +5,4 @@
 .js .geolocation-latlng {
     display: block;
      }
-
+.geolocation {display: none};
